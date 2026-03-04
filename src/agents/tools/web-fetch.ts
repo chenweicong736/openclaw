@@ -459,7 +459,7 @@ type WebFetchRuntimeParams = FirecrawlRuntimeParams & {
 function toFirecrawlContentParams(
   params: FirecrawlRuntimeParams & { url: string; extractMode: ExtractMode },
 ): Parameters<typeof fetchFirecrawlContent>[0] | null {
-  if (!params.firecrawlEnabled || !params.firecrawlApiKey) {
+  if (!params.firecrawlEnabled || !params.firecrawlApiKey || params.allowPrivateNetwork) {
     return null;
   }
   return {
